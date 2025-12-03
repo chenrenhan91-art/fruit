@@ -101,7 +101,7 @@
     <!-- 开屏背景（动态） -->
     <div class="absolute inset-0 z-0 pointer-events-none">
         <div class="w-full h-full relative overflow-hidden">
-            <!-- ⚠️ 开屏背景图 -->
+            <!-- 开屏背景图 -->
             <img src="opening-bg.jpg"
                  alt=""
                  class="w-full h-full object-cover opacity-80 bg-hero-animate"
@@ -174,7 +174,7 @@ const questions = [
     }
 ];
 
-/* ---------------- 结果配置（修正语法 + 加 artwork 字段） ---------------- */
+/* ---------------- 结果配置 ---------------- */
 const results = {
     peach: {
         img: "peach.jpg",
@@ -249,7 +249,7 @@ const results = {
         matchDesc:"野与柔的平衡。"
     },
     pomegranate:{
-        img:" pomegranate.jpg",
+        img:"pomegranate.jpg",
         name:"石榴人格",
         icon:"🍅",
         artwork: "画作《石榴裙下》",
@@ -434,7 +434,7 @@ function renderQuiz() {
                     ${q.options.map((opt,i)=>`
                         <button onclick="handleAnswer(${i})"
                             class="w-full text-left p-5 rounded-2xl bg-black/45 border border-white/15
-                                   backdrop-blur-md hover:bg白色/10 hover:border-orange-400/60
+                                   backdrop-blur-md hover:bg-white/10 hover:border-orange-400/60
                                    transition-all active:scale-[0.97]">
                             <span class="text-base opacity-90">${opt.text}</span>
                         </button>
@@ -470,7 +470,7 @@ function renderResult() {
 
     const html = `
     <div class="min-h-screen overflow-y-auto pb-32 animate-fade-in relative">
-        <div class="px-6 pt-6 flex justify之间 items-center opacity-80 text-[11px]">
+        <div class="px-6 pt-6 flex justify-between items-center opacity-80 text-[11px]">
             <span class="tracking-[0.28em]">FRUIT · UNIVERSE</span>
             <button onclick="location.reload()"
                     class="px-2 py-1 rounded-full bg-white/8 border border-white/16">
@@ -561,8 +561,7 @@ function renderResult() {
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <!-- ⚠️ 把qr-fruit-universe.jpg 换成你的二维码文件名 -->
-                    <img src="qr-fruit-universe.jpg "
+                    <img src="qr-fruit-universe.jpg"
                          alt="水果宇宙群二维码"
                          class="w-40 h-40 rounded-xl border border-white/40 bg-white object-contain">
                 </div>
@@ -613,7 +612,7 @@ function calculateResult() {
     currentState.finalResult = results[winners[Math.floor(Math.random()*winners.length)]];
 }
 
-/* 微信环境检测：只做提示，解决不了 github.io 被墙的问题 */
+/* 微信环境检测：只做提示 */
 (function detectWeChat() {
     if (/micromessenger/.test(navigator.userAgent.toLowerCase())) {
         const tip = document.getElementById('wx-tip');
